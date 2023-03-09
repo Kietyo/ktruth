@@ -1,4 +1,4 @@
-package com.xenotactic.testing
+package com.kietyo.ktruth
 
 import kotlin.test.*
 
