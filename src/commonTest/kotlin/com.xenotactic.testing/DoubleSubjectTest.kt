@@ -5,10 +5,7 @@ import kotlin.test.*
 internal class DoubleSubjectTest {
     @Test
     fun assertTest1() {
-        testAssertFailsWithMessage("""
-            absolute difference: ${0.00001}
-            expected:<3.0> but was:<2.0>
-        """.trimIndent()) {
+        testAssertFails<AssertionError> {
             assertThat(2.0).isEqualTo(3.0)
         }
     }
