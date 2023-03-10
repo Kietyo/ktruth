@@ -6,6 +6,7 @@ import kotlin.test.assertTrue
 
 fun assertThat(actual: Double) = DoubleSubject(actual)
 fun assertThat(actual: Boolean) = BooleanSubject(actual)
+fun assertThat(actual: String) = StringSubject(actual)
 fun <T : Any> assertThat(actual: T) = AnySubject(actual)
 fun <T : Any> assertThat(actual: Collection<T>) = CollectionSubject(actual)
 
