@@ -7,3 +7,4 @@
 /build/classes/kotlin/native/test/klib/
 /build/js/packages/ktruth-js-legacy/kotlin/
 /build/js/packages/ktruth-js-legacy-test/kotlin/
+build.gradle
