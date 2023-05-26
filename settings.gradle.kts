@@ -13,3 +13,4 @@ plugins {
 
 rootProject.name = "ktruth"
 
+//kproject("./deps")
