@@ -9,3 +9,4 @@
 /build/js/packages/ktruth-js-legacy-test/kotlin/
 build.gradle
 /deps/
+/.idea/
