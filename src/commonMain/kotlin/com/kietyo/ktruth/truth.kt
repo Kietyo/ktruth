@@ -51,9 +51,10 @@ internal fun <T> assertArrayContentEquals(
     size: (T) -> Int,
     get: T.(Int) -> Any?,
     contentToString: T?.() -> String,
-    contentEquals: T?.(T?) -> Boolean
-) {
-    if (expected.contentEquals(actual)) return
+    contentEquals: T?.(T?) -> Boolean,
+    returnResult: Boolean = false
+): Boolean {
+    if (expected.contentEquals(actual)) return true
 
     val typeName = "Array"
 
@@ -64,7 +65,7 @@ internal fun <T> assertArrayContentEquals(
             actual,
             contentToString
         )
-    ) return
+    ) return true
 
     val expectedSize = size(expected)
     val actualSize = size(actual)
@@ -73,7 +74,11 @@ internal fun <T> assertArrayContentEquals(
         val sizesDifferMessage = "$typeName sizes differ. Expected size is $expectedSize, actual size is $actualSize."
         val toString = "Expected <${expected.contentToString()}>, actual <${actual.contentToString()}>."
 
-        fail(messagePrefix(message) + sizesDifferMessage + "\n" + toString)
+        if (returnResult) {
+            return false
+        } else {
+            fail(messagePrefix(message) + sizesDifferMessage + "\n" + toString)
+        }
     }
 
     for (index in 0 until expectedSize) {
@@ -87,6 +92,8 @@ internal fun <T> assertArrayContentEquals(
             fail(messagePrefix(message) + elementsDifferMessage + "\n" + toString)
         }
     }
+
+    return true
 }
 
 
