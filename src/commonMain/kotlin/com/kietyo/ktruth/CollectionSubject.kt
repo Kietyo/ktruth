@@ -27,4 +27,8 @@ class CollectionSubject<T : Any>(val actual: Collection<T>) {
             assertTrue(actualSet.contains(expected))
         }
     }
+
+    fun isEqualTo(expected: Collection<T>) {
+        assertContentEquals(expected, actual)
+    }
 }
