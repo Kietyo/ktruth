@@ -11,8 +11,9 @@ fun assertThat(actual: Double) = DoubleSubject(actual)
 fun assertThat(actual: Boolean) = BooleanSubject(actual)
 fun assertThat(actual: String) = StringSubject(actual)
 fun assertThat(actual: ByteArray) = ByteArraySubject(actual)
-fun <T : Any> assertThat(actual: T) = AnySubject(actual)
-fun <T : Any> assertThat(actual: Collection<T>) = CollectionSubject(actual)
+fun assertThat(actual: LongRange) = LongRangeSubject(actual)
+fun <T> assertThat(actual: T?) = AnySubject(actual)
+fun <T> assertThat(actual: Collection<T>) = CollectionSubject(actual)
 
 internal fun messagePrefix(message: String?) = if (message == null) "" else "$message. "
 

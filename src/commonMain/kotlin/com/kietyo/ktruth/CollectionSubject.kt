@@ -4,7 +4,7 @@ import kotlin.test.assertContentEquals
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
-class CollectionSubject<T : Any>(val actual: Collection<T>) {
+class CollectionSubject<T>(val actual: Collection<T>) {
     fun isEmpty() {
         assertTrue(actual.isEmpty())
     }

@@ -6,8 +6,8 @@ import kotlin.test.assertEquals
 import kotlin.test.assertIs
 import kotlin.test.assertNull
 
-class AnySubject<T : Any?>(val actual: T?) {
-    fun isEqualTo(expected: T) {
+class LongRangeSubject(val actual: LongRange?) {
+    fun isEqualTo(expected: LongRange) {
         assertEquals(expected, actual)
     }
 
