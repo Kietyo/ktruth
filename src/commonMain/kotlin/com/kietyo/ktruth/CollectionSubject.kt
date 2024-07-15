@@ -14,7 +14,11 @@ class CollectionSubject<T>(val actual: Collection<T>) {
     fun hasSize(expectedSize: Int) {
         assertEquals(expectedSize, actual.size)
     }
+
     fun containsExactlyUnordered(vararg elements: T) {
+        containsExactlyUnordered(elements.asIterable())
+    }
+    fun containsExactlyUnordered(elements: Iterable<T>) {
         val actualSet = actual.toSet()
         val expectedSet = elements.toSet()
         assertEquals(expectedSet.size, actualSet.size,
@@ -22,7 +26,7 @@ class CollectionSubject<T>(val actual: Collection<T>) {
                 Expected: $expectedSet
                 Actual: $actualSet
             """.trimIndent()
-            )
+        )
         for (expected in expectedSet) {
             assertTrue(actualSet.contains(expected))
         }
